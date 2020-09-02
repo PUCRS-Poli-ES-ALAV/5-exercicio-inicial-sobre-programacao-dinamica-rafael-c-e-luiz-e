@@ -7,7 +7,7 @@ public class Main {
         
     }
 
-    // EX - 1 --------------------------------
+    // 1 --------------------------------
     public static int Fibo_rec(int n) {
         int a;
         int b;
@@ -19,7 +19,7 @@ public class Main {
         }
         return (a + b);
     }
-    // EX - 2 --------------------------------
+    // 2 --------------------------------
     public static int Fibo(int n) {
         int[] f = {0,1};
         for (int i = 2; i < f.length; i++) {
@@ -28,8 +28,8 @@ public class Main {
         return f[n];
     }
 
-    // EX - 3 --------------------------------
+    // 3 --------------------------------
 
-    
+
 
 }
