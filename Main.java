@@ -8,21 +8,21 @@ public class Main {
         int b[] = new int[9];
         int c[] = new int[17];
         int d[] = new int[33];
-        
-        Fibo_rec(4);
-        Fibo_rec(8);
-        Fibo_rec(16);
-        Fibo_rec(32);
+    
+        System.out.println(Fibo_rec(4));
+        System.out.println(Fibo_rec(8));
+        System.out.println(Fibo_rec(16));
+        System.out.println(Fibo_rec(32));
 
-        Fibo(4);
-        Fibo(8);
-        Fibo(16);
-        Fibo(32);
+        System.out.println(Fibo(4));    
+        System.out.println(Fibo(8));
+        System.out.println(Fibo(16));
+        System.out.println(Fibo(32));
 
-        MemoizedFibo(a, 4);
-        MemoizedFibo(b, 8);
-        MemoizedFibo(c, 16);
-        MemoizedFibo(d, 32);
+        System.out.println(MemoizedFibo(a, 4));
+        System.out.println(MemoizedFibo(b, 8));
+        System.out.println(MemoizedFibo(c, 16));
+        System.out.println(MemoizedFibo(d, 32));
 
 
     }
