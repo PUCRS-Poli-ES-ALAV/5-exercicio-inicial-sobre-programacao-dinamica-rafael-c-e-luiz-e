@@ -42,7 +42,7 @@ public class Main {
         int b;
         if (n <= 1)
             return n;
-        else{
+        else{   
             a = Fibo_rec(n-1);
             b = Fibo_rec(n-2);
         }
@@ -52,15 +52,15 @@ public class Main {
     public static int Fibo(int f[], int n) {
         f[0] = 0;
         f[1] = 1;
-        for (int i = 2; i < n; i++) {
-            f[i] = f[i-1] - f[i-2];
+        for (int i = 2; i <= n; i++) {
+            f[i] = f[i-1] + f[i-2];
         }
         return f[n];
     }
 
     // 3 ----------------------------------------------------------------
     public static int MemoizedFibo (int f[], int n){
-        for(int i=0; i<n; i++){
+        for(int i=0; i<=n; i++){
             f[i] = -1;
         }
         return LookUpFibo(f, n);
