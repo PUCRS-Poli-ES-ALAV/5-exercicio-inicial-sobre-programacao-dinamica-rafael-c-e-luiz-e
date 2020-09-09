@@ -2,7 +2,7 @@
  * Main
  */
 public class Main {
-
+    static int COUNT = 0;
     public static void main(String[] args) {
         int a[] = new int[5];
         int b[] = new int[9];
@@ -13,16 +13,45 @@ public class Main {
         int g[] = new int[10001];
 
 
-
+        COUNT = 0;
         System.out.println("\nFibo rec 4 -------------- " +Fibo_rec(4));
-        System.out.println("Fibo rec 8-------------- " + Fibo_rec(8));
-        System.out.println("Fibo rec 16-------------- " + Fibo_rec(16));
-        System.out.println("Fibo rec 32 -------------- " + Fibo_rec(32) + "\n");
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
 
+        COUNT = 0;
+        System.out.println("Fibo rec 8-------------- " + Fibo_rec(8));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
+        System.out.println("Fibo rec 16-------------- " + Fibo_rec(16));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
+        System.out.println("Fibo rec 32 -------------- " + Fibo_rec(32));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Fibo 4 -------------- " + Fibo(a, 4));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Fibo 8 -------------- " + Fibo(b, 8));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Fibo 16 -------------- " + Fibo(c, 16));
-        System.out.println("Fibo 32 -------------- " + Fibo(d, 32) + "\n");
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
+        System.out.println("Fibo 32 -------------- " + Fibo(d, 32));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
 
 
         a = new int[5];
@@ -33,13 +62,41 @@ public class Main {
         f = new int[1001];
         g = new int[10001];
 
+        COUNT = 0;
         System.out.println("Memoized Fibo 4 -------------- " + MemoizedFibo(a, 4));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Memoized Fibo 8 -------------- " + MemoizedFibo(b, 8));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Memoized Fibo 16 -------------- " + MemoizedFibo(c, 16));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Memoized Fibo 32 -------------- " + MemoizedFibo(d, 32));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Memoized Fibo 128 -------------- " + MemoizedFibo(e, 128));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
         System.out.println("Memoized Fibo 1000 -------------- " + MemoizedFibo(f, 1000));
-        System.out.println("Memoized Fibo 10.000 -------------- " + MemoizedFibo(g, 10000) + "\n");
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
+        COUNT = 0;
+        System.out.println("Memoized Fibo 10.000 -------------- " + MemoizedFibo(g, 10000));
+        System.out.println("Iterações: " + COUNT);
+        System.out.println("\n");
+
 
 
         Block block[] = {
@@ -49,12 +106,16 @@ public class Main {
                 new Block(50, 200)
 
         };
+        COUNT = 0;
         System.out.println("Sack: " + knapSack(block, 70, block.length));
+        System.out.println("Iterações: " + COUNT + "\n");
+
 
     }
 
     // 1 ----------------------------------------------------------------
     public static int Fibo_rec(int n) {
+        COUNT++;
         int a;
         int b;
         if (n <= 1)
@@ -68,9 +129,11 @@ public class Main {
 
     // 2 ----------------------------------------------------------------
     public static int Fibo(int f[], int n) {
+        COUNT++;
         f[0] = 0;
         f[1] = 1;
         for (int i = 2; i <= n; i++) {
+            COUNT++;
             f[i] = f[i - 1] + f[i - 2];
         }
         return f[n];
@@ -78,13 +141,16 @@ public class Main {
 
     // 3 ----------------------------------------------------------------
     public static int MemoizedFibo(int f[], int n) {
+        COUNT++;
         for (int i = 0; i <= n; i++) {
+            COUNT++;
             f[i] = -1;
         }
         return LookUpFibo(f, n);
     }
 
     public static int LookUpFibo(int f[], int n) {
+        COUNT++;
         if (f[n] >= 0) {
             return f[n];
         }
@@ -99,17 +165,21 @@ public class Main {
     // knapSack ----------------------------------------------------------------
 
     public static int knapSack(Block[] block, int mWeight, int mValue) {
+        COUNT++;
         if ( mValue <= 0 || mWeight <= 0) {
             return 0;
         }
 
         int[][] sack = new int[mValue + 1][mWeight + 1];
         for (int j = 0; j <= mWeight; j++) {
+            COUNT++;
             sack[0][j] = 0;
         }
 
         for (int i = 1; i <= mValue; i++) {
+            COUNT++;
             for (int j = 1; j <= mWeight; j++) {
+                COUNT++;
                 if (block[i -1].weight > j) {
                     sack[i][j] = sack[i -1][j];
                 } else {
