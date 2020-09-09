@@ -100,12 +100,19 @@ public class Main {
 
 
         Block block[] = {
-                new Block(10, 60),
-                new Block(20, 100),
-                new Block(30, 120),
-                new Block(50, 200)
+            // new Block(weight, value)
+             new Block(23, 92),
+             new Block(31, 57),
+             new Block(29, 49),
+             new Block(44, 68),
+             new Block(53, 60),
+             new Block(38, 43),
+             new Block(63, 67),
+             new Block(85, 84),
+             new Block(89, 87),
+             new Block(82, 72)
 
-        };
+     };
         COUNT = 0;
         System.out.println("Sack: " + knapSack(block, 70, block.length));
         System.out.println("Iterações: " + COUNT + "\n");
