@@ -34,7 +34,7 @@
 	se f [n] ≥ 0
         então devolva f [n]
 	se n ≤ 1
-	então f [n] ← n
+	   então f [n] ← n
 	senão f [n] ← LOOKUP-FIBO(f, n − 1) + LOOKUP-FIBO(f, n − 2)
 	devolva f [n]
    ```
