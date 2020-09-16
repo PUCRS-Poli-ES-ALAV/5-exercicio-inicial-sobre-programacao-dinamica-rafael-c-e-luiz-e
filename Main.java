@@ -98,7 +98,6 @@ public class Main {
         System.out.println("\n");
 
 
-
         Block block[] = {
             // new Block(weight, value)
              new Block(23, 92),
