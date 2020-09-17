@@ -10,15 +10,16 @@ public class NewMain {
         int matriz [][] = new int [a.length()+1][b.length()+1];
         matriz[0][0] = 0;
         int custo;
-        for (int i = 0; i < a.length(); i++)
-            matriz[i][0] = matriz[i][0] + 1;
+        for (int i = 1; i < a.length()+1; i++)
+            matriz[i][0] = matriz[i-1][0] + 1;
 
-        for (int i = 1; i < b.length(); i++)
-            matriz[0][i] = matriz[0][i] + 1;
+        for (int i = 1; i < b.length()+1; i++)
+            matriz[0][i] = matriz[0][i-1] + 1;
         
-        for (int i = 1; i < a.length(); i++) {
-            for (int j = 1; j < b.length(); j++) {
-                if(a.charAt(i) == b.charAt(j)){
+        for (int i = 1; i <=a.length(); i++) {
+            for (int j = 1; j <=b.length(); j++) {
+                System.out.println("a =>"+a.charAt(i-1)+" | b=>" + b.charAt(j-1));
+                if(a.charAt(i-1) == b.charAt(j-1)){
                     custo = 0;
                 }else{
                     custo = 1;
@@ -26,12 +27,13 @@ public class NewMain {
                 matriz[i][j] = Minimo(matriz[i-1][j] + 1, matriz[i][j-1] + 1, matriz[i-1][j-1] + custo);
             }
         }
-        for (int i = 0; i < matriz.length-1; i++) {
-            for (int j = 0; j < matriz.length-1; j++) {
+        for (int i = 0; i < a.length()+1; i++) {
+            for (int j = 0; j < b.length()+1; j++) {
                 System.out.print(matriz[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println("matriz[0][0] - " + matriz[0][0]);
         return matriz[a.length()][b.length()];
     }
 
